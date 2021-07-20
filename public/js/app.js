@@ -13,6 +13,7 @@ weatherForm.addEventListener('submit', (e) => {
 
     messageOne.textContent = "Loading...." 
     messageTwo.textContent = ''
+    weatherImage.src = ''
     // http://localhost:3000
     fetch('/weather?address=' + location).then((response) => {
     response.json().then((data) => {
@@ -22,7 +23,7 @@ weatherForm.addEventListener('submit', (e) => {
         } else {
             messageOne.textContent = data.location
             messageTwo.textContent = data.forecast
-            document.getElementById('weather-image').src = data.image
+            weatherImage.src = data.image
             // console.log(data.image)
         }
     })
